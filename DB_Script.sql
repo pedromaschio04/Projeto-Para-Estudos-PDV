@@ -2,33 +2,33 @@ create table produtos(
     produto_id int not null primary key auto_increment,
     descricao varchar(80) not null,
     ean varchar(15),
-    marcar varchar(60) not null,
+    marca varchar(60) not null,
     peso double,
     largura double,
     altura double,
     profundidade double,
-    ativo boolean not null,
+    inativo boolean not null,
     preco_venda double, 
     quantidade int,
     data_cadastro date not null
 );
 
 create table ufs(
-    uf_id integer not null primary key auto_increment,
-    nome varchar(2) not null
+    uf_id int not null primary key auto_increment,
+    uf varchar(2) not null  
 );
 
  create table cidades(
-    cidade_id integer not null primary key auto_increment,
+    cidade_id int not null primary key auto_increment,
     nome varchar(100) not null,
-    uf_id integer not null,
+    uf_id int har(2) not null,
     foreign key(uf_id) references ufs(uf_id)
 );
 
 create table pessoas(
     pessoa_id int not null primary key auto_increment,
     nome varchar(100) not null,
-    ativo boolean,
+    inativo boolean not null,
     cpf varchar(15) not null,
     rg varchar(10),
     genero varchar(15),
@@ -56,7 +56,7 @@ create table usuarios(
     pessoa_id int,
     login varchar(20) not null,
     senha varchar(20) not null,
-    ativo boolean
+    inativo boolean not null
 );
 
 
